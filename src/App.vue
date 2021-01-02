@@ -1,8 +1,15 @@
 <template>
   <div class="home">
-    <div class="hello" v-if="helloJudge">
-      <input tyoe="text" v-model="helloPass" placeholder="password" />
-      <button v-on:click="closeHello">ログイン</button>
+    <div class="teamrlogo" v-if="helloJudge">
+      <div class="hello">
+        <input
+          type="text"
+          class="appInput"
+          v-model="helloPass"
+          placeholder="password"
+        /><br />
+        <button class="appButton" v-on:click="closeHello">ログイン</button>
+      </div>
     </div>
     <selectview v-if="helloJudge === false" />
   </div>
@@ -34,3 +41,42 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.teamrlogo {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-size: cover;
+  background-image: url("./assets/teamrlogo.png");
+}
+
+.appButton {
+  display: inline-block;
+  width: 160px;
+  padding: 0.8em;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background: #0c88ca;
+  border-bottom: 4px solid #005691;
+  border-radius: 4px;
+  transition: 0s;
+}
+.appButton:hover {
+  cursor: pointer;
+  text-decoration: none;
+  background: #005691;
+  transform: translate3d(0, 4px, 0);
+  transition: 0s;
+  border-bottom: none;
+}
+.appInput {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  padding: 20px;
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+</style>
