@@ -1,28 +1,39 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="home">
+    <div class="hello" v-if="helloJudge">
+      <input tyoe="text" v-model="helloPass" placeholder="password" />
+      <button v-on:click="closeHello">ログイン</button>
+    </div>
+    <selectview v-if="helloJudge === false" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Select from "./components/Select.vue";
 export default {
-  name: "App",
   components: {
-    HelloWorld
+    selectview: Select
+  },
+  data: () => ({
+    helloPass: "",
+    helloJudge: true
+  }),
+  methods: {
+    closeHello() {
+      console.log(this.$store.state.pass);
+      if (this.helloPass === "teamR") {
+        alert("ログイン完了");
+
+        //stateにpassを保存して次回以降呼び出し
+        this.helloJudge = false;
+      }
+    },
+    confirmReload(event) {
+      event.returnValue = "ログイン前まで処理が戻りますがよろしいですか？";
+    }
+  },
+  created: function() {
+    window.addEventListener("beforeunload", this.confirmReload);
   }
 };
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
