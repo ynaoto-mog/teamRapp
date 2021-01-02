@@ -20,11 +20,8 @@ export default {
   }),
   methods: {
     closeHello() {
-      console.log(this.$store.state.pass);
       if (this.helloPass === "teamR") {
         alert("ログイン完了");
-
-        //stateにpassを保存して次回以降呼び出し
         this.helloJudge = false;
       }
     },
