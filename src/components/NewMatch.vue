@@ -98,7 +98,8 @@ export default {
           (this.proPosi = new Array(9).fill("")),
           (this.proMem = new Array(9).fill(""));
       } catch (e) {
-        alert(e.message);
+        alert("山路に報告お願いします！");
+        console.log(e.message);
       }
     }
   },
