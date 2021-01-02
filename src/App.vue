@@ -43,6 +43,12 @@ export default {
 </script>
 
 <style lang="scss">
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Oswald", sans-serif;
+}
+
 .teamrlogo {
   width: 100%;
   height: 100vh;
@@ -53,14 +59,14 @@ export default {
 
 .appButton {
   display: inline-block;
-  width: 160px;
+  width: 130px;
   padding: 0.8em;
   text-align: center;
   text-decoration: none;
   color: #fff;
   background: #0c88ca;
   border-bottom: 4px solid #005691;
-  border-radius: 4px;
+  border-radius: 10px;
   transition: 0s;
 }
 .appButton:hover {
@@ -73,7 +79,7 @@ export default {
 }
 .appInput {
   margin-top: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   padding: 20px;
   text-align: center;
   padding-left: 30px;
