@@ -1,14 +1,14 @@
 <template>
   <div class="newMember">
-    新規メンバー
-    <p>氏名</p>
+    <h2>新規メンバー追加</h2>
+    <p class="newMemberInput">氏名</p>
     <input type="text" placeholder="氏名" v-model="name" />
-    <p>背番号</p>
+    <p class="newMemberInput">背番号</p>
     <input type="number" placeholder="背番号" v-model="uniformNumber" />
-    <p>入学年</p>
+    <p class="newMemberInput">入学年</p>
     <input type="text" placeholder="20XX" v-model="admission" />
-    <p>確認して登録ボタンを押してください。</p>
-    <button v-on:click="saveMember">登録</button>
+    <p class="newMemberConfirm">確認して登録ボタンを押してください。</p>
+    <a class="newMemberButton" v-on:click="saveMember">登録</a>
   </div>
 </template>
 
@@ -50,4 +50,28 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.newMember {
+  width: 100%;
+  padding: 3vh 5%;
+}
+.newMemberInput {
+  margin-top: 3vh;
+  font-size: 1.1rem;
+}
+.newMemberConfirm {
+  margin-top: 3vh;
+}
+.newMemberButton {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #fff;
+  background-image: linear-gradient(45deg, #ff7707 0%, #f74e0b 100%);
+  transition: 0.4s;
+}
+.newMemberButton:hover {
+  background-image: linear-gradient(45deg, #ff0707 0%, #f76a35 100%);
+}
+</style>

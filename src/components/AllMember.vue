@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <h3>メンバー一覧</h3>
+  <div class="allMember">
+    <h2 class="allMemberH2">メンバー一覧</h2>
     <ul v-for="member in members" :key="member.id">
-      <li>
+      <li class="allMemberList">
         <a v-on:click="openMemberModal(member.name)">{{ member.name }}</a>
         <memberdetail
           v-if="memberModalJudge === member.name"
@@ -46,4 +46,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.allMember {
+  width: 100%;
+  padding: 3vh 5%;
+}
+.allMemberH2 {
+  margin-bottom: 3vh;
+}
+.allMemberList {
+  list-style: none;
+  margin-bottom: 2vh;
+  font-weight: bold;
+}
+</style>

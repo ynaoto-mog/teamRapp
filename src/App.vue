@@ -30,6 +30,8 @@ export default {
       if (this.helloPass === "teamR") {
         alert("ログイン完了");
         this.helloJudge = false;
+      } else {
+        alert("パスワードを入力してください");
       }
     },
     confirmReload(event) {
