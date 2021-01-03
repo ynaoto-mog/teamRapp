@@ -23,6 +23,7 @@ export default {
   },
   data: () => ({
     members: [],
+    results: [],
     memberModalJudge: ""
   }),
   methods: {
@@ -35,7 +36,7 @@ export default {
     }
   },
   created: async function() {
-    const memberData = await firestore.collection("members").get();
+    const memberData = await firestore.collection("members").get(); //メンバー全員のデータ取得
     memberData.docs.forEach(doc => {
       this.members.push({
         id: doc.id,
