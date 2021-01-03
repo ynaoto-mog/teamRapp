@@ -11,12 +11,20 @@
     <input type="number" v-model="date" />日<br />
     球場名
     <input type="text" v-model="place" />
+    <p>投手をした人にはチェックを付けてください。</p>
     <ul v-for="i in parseInt(pNum)" v-bind:key="i">
       {{
         i
       }}番
       <vSelect :options="memberData" v-model="proMem[i - 1]" />
       <vSelect :options="positions" v-model="proPosi[i - 1]" />
+      <div v-if="proPosi[i - 1] !== '投手'">
+        <input
+          type="checkbox"
+          v-on:click="inputPitch(i - 1)"
+          v-model="judgePitch[i - 1]"
+        />
+      </div>
     </ul>
     <a v-on:click="submit">決定</a>
   </div>
@@ -37,9 +45,10 @@ export default {
   data: () => ({
     opponent: "",
     members: [],
-    selected: new Array(9).fill({ member: "", position: "" }),
-    proPosi: new Array(9).fill(""), //暫定ポジションを一時的に取得
-    proMem: new Array(9).fill(""), //
+    selected: [],
+    proPosi: [], //暫定ポジションを一時的に取得
+    judgePitch: [], //投手をしたかのデータ
+    proMem: [], //
     memberData: [], //firebaseから取得する全員のデータd
     positions: [
       "投手",
@@ -66,8 +75,10 @@ export default {
         place: this.place,
         memberList: this.proMem,
         positionList: this.proPosi,
+        judgePitch: this.judgePitch,
         resultsId: ""
       };
+      //入力ミスによるバグを回避するコードをここに入力
       try {
         await firestore.collection("matches").add(matchData);
         alert("試合を登録しました！");
@@ -76,12 +87,16 @@ export default {
           (this.month = ""),
           (this.date = ""),
           (this.place = ""),
-          (this.proPosi = new Array(9).fill("")),
-          (this.proMem = new Array(9).fill(""));
+          (this.proPosi = new Array(parseInt(this.pNum)).fill("")),
+          (this.proMem = new Array(parseInt(this.pNum)).fill("")),
+          (this.judgePitch = new Array(parseInt(this.pNum)).fill(false));
       } catch (e) {
         alert("山路に報告お願いします！");
         console.log(e.message);
       }
+    },
+    inputPitch(retu) {
+      this.judgePitch[retu] = !this.judgePitch[retu];
     }
   },
   created: async function() {
@@ -90,8 +105,9 @@ export default {
       this.memberData.push(doc.data().name);
     });
     (this.selected = new Array(this.pNum).fill({ member: "", position: "" })),
-      (this.proPosi = new Array(this.pNum).fill("")),
-      (this.proMem = new Array(this.pNum).fill(""));
+      (this.proPosi = new Array(parseInt(this.pNum)).fill("")),
+      (this.proMem = new Array(parseInt(this.pNum)).fill(""));
+    this.judgePitch = new Array(parseInt(this.pNum)).fill(false);
   }
 };
 </script>

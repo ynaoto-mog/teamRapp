@@ -16,13 +16,16 @@
               placeholder="打席数"
             />：<input
               type="number"
+              v-model="rbis[i - 1]"
+              placeholder="打点"
+            />：<input
+              type="number"
               v-model="fours[i - 1]"
               placeholder="四死球数"
             />
           </td>
         </tr>
       </table>
-
       <button v-on:click="confirmResults">成績確定！</button>
     </div>
     <div v-else>
@@ -56,7 +59,7 @@ export default {
     times: [], //打席数
     hits: [], //ヒット数
     fours: [], //選んだ四球数+デッドボール数
-    rbi: [], //打点 times,hits,fours,rbiはcreatedで再定義
+    rbis: [], //打点 times,hits,fours,rbiはcreatedで再定義
     resultsLength: new Number(),
     hitsResults: [],
     timesResults: [],
@@ -69,7 +72,7 @@ export default {
         members: this.match[0].memberList,
         times: this.times,
         hits: this.hits,
-        rbi: this.rbi,
+        rbis: this.rbis,
         fours: this.fours,
         matchId: this.matchId
       };
@@ -81,14 +84,13 @@ export default {
       (this.times = new Array(9).fill("")),
         (this.hits = new Array(9).fill("")),
         (this.fours = new Array(9).fill("")),
-        (this.rbi = new Array(9).fill(""));
+        (this.rbis = new Array(9).fill(""));
 
       firestore
         .collection("matches")
         .doc(this.matchId)
         .update({ resultsId: this.matchId });
-    },
-    getRealTimes() {}
+    }
   },
   async created() {
     const matchD = await firestore
@@ -103,6 +105,8 @@ export default {
     this.times = new Array(this.pNum).fill("");
     this.hits = new Array(this.pNum).fill("");
     this.fours = new Array(this.pNum).fill("");
+    this.rbis = new Array(this.pNum).fill("");
+    console.log(this.fours);
     //
     if (this.match[0].resultsId !== "") {
       const resultsD = await firestore
