@@ -70,7 +70,7 @@ export default {
 }
 .detailInAllMatch {
   background-color: #f7d495;
-  width: 40%;
+  width: 70%;
   margin-left: 20%;
 }
 </style>

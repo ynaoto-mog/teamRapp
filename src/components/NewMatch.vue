@@ -15,16 +15,8 @@
       {{
         i
       }}番
-      <vSelect
-        :options="memberData"
-        v-model="proMem[i - 1]"
-        @input="selectMem(i - 1)"
-      />
-      <vSelect
-        :options="positions"
-        v-model="proPosi[i - 1]"
-        @input="selectPosi(i - 1)"
-      />
+      <vSelect :options="memberData" v-model="proMem[i - 1]" />
+      <vSelect :options="positions" v-model="proPosi[i - 1]" />
     </ul>
     <a v-on:click="submit">決定</a>
   </div>
@@ -66,17 +58,6 @@ export default {
     place: ""
   }),
   methods: {
-    confirm() {
-      console.log(this.member);
-    },
-    selectMem(retu) {
-      console.log(retu);
-      console.log(this.proMem);
-    },
-    selectPosi(retu) {
-      console.log(retu);
-      console.log(this.proPosi);
-    },
     async submit() {
       const month = this.month - 1;
       const matchData = {
@@ -108,6 +89,9 @@ export default {
     memberD.docs.forEach(doc => {
       this.memberData.push(doc.data().name);
     });
+    (this.selected = new Array(this.pNum).fill({ member: "", position: "" })),
+      (this.proPosi = new Array(this.pNum).fill("")),
+      (this.proMem = new Array(this.pNum).fill(""));
   }
 };
 </script>
