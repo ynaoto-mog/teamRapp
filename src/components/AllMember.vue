@@ -1,6 +1,6 @@
 <template>
   <div class="allMember">
-    <h2 class="allMemberH2">メンバー一覧</h2>
+    <h2 class="allMemberH2">メンバー一覧(クリックで通算成績確認)</h2>
     <ul v-for="member in members" :key="member.id">
       <li class="allMemberList">
         <a v-on:click="openMemberModal(member.name)">{{ member.name }}</a>
