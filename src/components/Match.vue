@@ -1,6 +1,6 @@
 <template>
   <div class="match">
-    <h3 class="secondMenuInMatch">Second Menu</h3>
+    <h3 class="secondMenuInMatch">Second Menu =></h3>
     <ul class="matchUl">
       <li v-if="matchWord !== 'newMatch'" class="matchListTwo">
         <input
