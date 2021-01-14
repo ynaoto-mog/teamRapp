@@ -1,14 +1,7 @@
 <template>
   <div class="match">
+    <h3 class="secondMenuInMatch">Second Menu</h3>
     <ul class="matchUl">
-      <li v-if="pNum >= 5" class="matchListOne">
-        <a class="matchButton" v-on:click="shiftMemberPage('newMatch')"
-          >試合を記録</a
-        >
-      </li>
-      <li v-if="pNum < 5" class="matchListOne">
-        <a class="matchButton" v-on:click="alertInput">試合を記録</a>
-      </li>
       <li v-if="matchWord !== 'newMatch'" class="matchListTwo">
         <input
           class="matchInput"
@@ -16,6 +9,14 @@
           v-model="pNum"
           placeholder="試合出場人数(9)"
         />
+      </li>
+      <li v-if="pNum >= 5" class="matchListOne">
+        <a class="matchButton" v-on:click="shiftMemberPage('newMatch')"
+          >試合を記録</a
+        >
+      </li>
+      <li v-if="pNum < 5" class="matchListOne">
+        <a class="matchButton" v-on:click="alertInput">試合を記録</a>
       </li>
       <li class="matchListOne">
         <a class="matchButton" v-on:click="shiftMemberPage('allMatch')"
@@ -53,6 +54,12 @@ export default {
 </script>
 
 <style lang="scss">
+.secondMenuInMatch {
+  float: left;
+  margin-top: 3.2vh;
+  margin-left: 3%;
+  font-family: serif;
+}
 .matchButton {
   display: inline-block;
   width: 100px;
@@ -76,6 +83,7 @@ export default {
 .matchUl {
   width: 100%;
   list-style: none;
+  margin-left: 550px;
 }
 .matchListOne {
   float: left;

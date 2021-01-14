@@ -1,5 +1,6 @@
 <template>
   <div class="members">
+    <h3 class="secondMenuInMember">Second Menu</h3>
     <ul class="memberUl">
       <li class="memberListOne">
         <a class="memberButton" v-on:click="changeMPage('allmember')"
@@ -39,9 +40,16 @@ export default {
 </script>
 
 <style lang="scss">
+.secondMenuInMember {
+  float: left;
+  margin-top: 3.2vh;
+  margin-left: 3%;
+  font-family: serif;
+}
 .memberUl {
   width: 100%;
   list-style: none;
+  margin-left: 500px;
 }
 .hrInMember {
   clear: both;
