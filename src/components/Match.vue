@@ -9,7 +9,6 @@
           v-model="pNum"
           placeholder="試合出場人数(9)"
         />
-        =>
       </li>
       <li v-if="pNum >= 5" class="matchListOne">
         <a class="matchButton" v-on:click="shiftMemberPage('newMatch')"

@@ -6,7 +6,7 @@
     <p class="newMemberInput">背番号</p>
     <input type="number" placeholder="背番号" v-model="uniformNumber" />
     <p class="newMemberInput">入学年</p>
-    <input type="text" placeholder="20XX" v-model="admission" />
+    <input type="number" placeholder="20XX" v-model="admission" />
     <p class="newMemberConfirm">確認して登録ボタンを押してください。</p>
     <a class="newMemberButton" v-on:click="saveMember">登録</a>
   </div>
@@ -31,8 +31,8 @@ export default {
       ) {
         const memberData = {
           name: this.name,
-          uniformNumber: this.uniformNumber,
-          admission: this.admission
+          uniformNumber: Number(this.uniformNumber),
+          admission: Number(this.admission)
         };
         try {
           await firestore.collection("members").add(memberData);
@@ -53,7 +53,7 @@ export default {
 <style lang="scss">
 .newMember {
   width: 100%;
-  padding: 3vh 5%;
+  padding: 3vh 10%;
 }
 .newMemberInput {
   margin-top: 3vh;

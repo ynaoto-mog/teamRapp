@@ -3,6 +3,10 @@
     <h2 class="allMemberH2">メンバー一覧(クリックで通算成績確認)</h2>
     <ul v-for="member in members" :key="member.id">
       <li class="allMemberList">
+        <p v-if="member.admission != admissionYear" class="printAdmissionYear">
+          <span>{{ printAdmissionYear(member.admission) }}</span
+          >年入学
+        </p>
         <a v-on:click="openMemberModal(member.name)">{{ member.name }}</a>
         <memberdetail
           v-if="memberModalJudge === member.name"
@@ -24,7 +28,8 @@ export default {
   data: () => ({
     members: [],
     results: [],
-    memberModalJudge: ""
+    memberModalJudge: "",
+    admissionYear: new Number()
   }),
   methods: {
     openMemberModal(name) {
@@ -33,10 +38,17 @@ export default {
       } else {
         this.memberModalJudge = "";
       }
+    },
+    printAdmissionYear(year) {
+      this.admissionYear = year;
+      return year;
     }
   },
   created: async function() {
-    const memberData = await firestore.collection("members").get(); //メンバー全員のデータ取得
+    const memberData = await firestore
+      .collection("members")
+      .orderBy("admission", "desc")
+      .get(); //メンバー全員のデータ取得
     memberData.docs.forEach(doc => {
       this.members.push({
         id: doc.id,
@@ -50,7 +62,7 @@ export default {
 <style lang="scss">
 .allMember {
   width: 100%;
-  padding: 3vh 5%;
+  padding: 3vh 10%;
 }
 .allMemberH2 {
   margin-bottom: 3vh;
@@ -59,5 +71,12 @@ export default {
   list-style: none;
   margin-bottom: 2vh;
   font-weight: bold;
+}
+.printAdmissionYear {
+  margin-bottom: 10px;
+  margin-top: 40px;
+  span {
+    color: #ca0c0c;
+  }
 }
 </style>
