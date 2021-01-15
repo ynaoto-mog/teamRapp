@@ -4,10 +4,6 @@
     <loading v-if="loadingJudge === true" />
     <ul v-for="member in members" :key="member.id">
       <li class="allMemberList">
-        <p v-if="member.admission != admissionYear" class="printAdmissionYear">
-          <span>{{ printAdmissionYear(member.admission) }}</span
-          >年入学
-        </p>
         <a v-on:click="openMemberModal(member.name)">{{ member.name }}</a>
         <memberdetail
           v-if="memberModalJudge === member.name"
