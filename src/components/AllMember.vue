@@ -1,6 +1,7 @@
 <template>
   <div class="allMember">
     <h2 class="allMemberH2">メンバー一覧(クリックで通算成績確認)</h2>
+    <loading v-if="loadingJudge === true" />
     <ul v-for="member in members" :key="member.id">
       <li class="allMemberList">
         <p v-if="member.admission != admissionYear" class="printAdmissionYear">
@@ -21,15 +22,18 @@
 import firebase from "../firebase.js";
 const firestore = firebase.firestore();
 import MemberDetail from "./MemberDetail.vue";
+import Loading from "./Loading.vue";
 export default {
   components: {
-    memberdetail: MemberDetail
+    memberdetail: MemberDetail,
+    loading: Loading
   },
   data: () => ({
     members: [],
     results: [],
     memberModalJudge: "",
-    admissionYear: new Number()
+    admissionYear: new Number(),
+    loadingJudge: true
   }),
   methods: {
     openMemberModal(name) {
@@ -45,6 +49,7 @@ export default {
     }
   },
   created: async function() {
+    this.loadingJudge = true;
     const memberData = await firestore
       .collection("members")
       .orderBy("admission", "desc")
@@ -55,6 +60,7 @@ export default {
         ...doc.data()
       });
     });
+    this.loadingJudge = false;
   }
 };
 </script>

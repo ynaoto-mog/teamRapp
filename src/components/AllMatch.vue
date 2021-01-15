@@ -37,7 +37,10 @@ export default {
     }
   },
   async created() {
-    const matchData = await firestore.collection("matches").get();
+    const matchData = await firestore
+      .collection("matches")
+      .orderBy("date")
+      .get();
     matchData.docs.forEach(doc => {
       this.matches.push({
         id: doc.id,
