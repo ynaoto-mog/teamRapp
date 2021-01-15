@@ -32,7 +32,7 @@ export default {
     members: [],
     results: [],
     memberModalJudge: "",
-    admissionYear: new Number(),
+    admissionYear: 0,
     loadingJudge: true
   }),
   methods: {

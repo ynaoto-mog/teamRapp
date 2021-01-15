@@ -8,21 +8,27 @@
       <li class="selectListOne">
         <a class="selectButton" v-on:click="changePart('matches')">試合</a>
       </li>
+      <li class="selectListOne">
+        <a class="selectButton" v-on:click="changePart('gmap')">試合会場</a>
+      </li>
     </ul>
     <hr class="hrInSelect" />
     <member class="memberInSelect" v-if="partName === 'members'" />
     <match class="matchInSelect" v-if="partName === 'matches'" />
+    <gmap v-if="partName === 'gmap'" />
   </div>
 </template>
 
 <script>
 import Member from "./Member.vue";
 import Match from "./Match.vue";
+import GMap from "./GMap.vue";
 export default {
   name: "selecting",
   components: {
     member: Member,
-    match: Match
+    match: Match,
+    gmap: GMap
   },
   data: () => ({
     partName: "members"
