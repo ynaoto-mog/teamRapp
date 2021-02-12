@@ -69,6 +69,12 @@ export default {
 .teamRAppHeader {
   height: 15vh;
   background-color: rgba(0, 0, 0, 0.6);
+  transition-property: background-color, height;
+  transition-duration: 1s;
+}
+.teamRAppHeader:hover {
+  background-color: rgba(73, 0, 0, 0.692);
+  height: 20vh;
 }
 #teamRApp {
   color: white;
