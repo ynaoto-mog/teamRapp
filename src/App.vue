@@ -18,6 +18,7 @@
           /></a>
         </nav>
       </header>
+      <topbar />
     </div>
     <selectview v-if="helloJudge === false" />
   </div>
@@ -25,9 +26,11 @@
 
 <script>
 import Select from "./components/Select.vue";
+import TopBar from "./components/TopBar.vue";
 export default {
   components: {
-    selectview: Select
+    selectview: Select,
+    topbar: TopBar
   },
   data: () => ({
     helloPass: "",
@@ -64,26 +67,26 @@ export default {
   background-size: cover;
 }
 .teamRAppHeader {
-  height: 100px;
-  background-color: rgba(0, 0, 0, 0.788);
+  height: 15vh;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 #teamRApp {
   color: white;
   font-size: 1.7rem;
-  line-height: 100px;
+  line-height: 15vh;
   float: left;
 }
 .RInTeamR {
   color: red;
 }
 .teamRAppNav {
-  line-height: 100px;
+  line-height: 15vh;
 }
 .appInput {
   outline: none;
   border: solid 0px;
   border-bottom: solid 1px white;
-  background-color: rgba(0, 0, 0, 0.788);
+  background-color: rgba(0, 0, 0, 0.6);
   height: 40px;
   color: white;
   margin-right: 10px;
@@ -104,7 +107,7 @@ export default {
   .appInput {
     width: 200px;
     font-size: 1.1rem;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
   }
 }
 @media screen and (min-width: 480px) and (max-width: 900px) {
