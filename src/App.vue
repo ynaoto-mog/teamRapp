@@ -104,7 +104,7 @@ export default {
     letter-spacing: 5px;
   }
 }
-@media screen and (min-width: 480px) and (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .teamr-background {
     background-image: url("./assets/height.jpg");
   }
