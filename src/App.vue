@@ -2,7 +2,7 @@
   <div class="home">
     <div class="teamr-background" v-if="helloJudge">
       <header class="teamRAppHeader">
-        <p id="teamRApp">Team-R</p>
+        <p id="teamRApp">Team-<span class="RInTeamR">R</span></p>
         <nav class="teamRAppNav">
           <input
             type="text"
@@ -72,6 +72,9 @@ export default {
   font-size: 1.7rem;
   line-height: 100px;
   float: left;
+}
+.RInTeamR {
+  color: red;
 }
 .teamRAppNav {
   line-height: 100px;
