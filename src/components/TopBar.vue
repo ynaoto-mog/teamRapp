@@ -15,12 +15,11 @@ export default {};
 <style lang="scss" scoped>
 .top-bar {
   width: 18%;
-  height: 85vh;
+  height: 79vh;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   text-align: center;
   padding-top: 80px;
-  padding-bottom: 40px;
   padding-left: 15px;
   padding-right: 15px;
   font-size: 1rem;

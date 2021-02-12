@@ -62,7 +62,7 @@ export default {
 }
 .teamr-background {
   font-family: "Oswald", sans-serif;
-  min-height: 100vh;
+  min-height: 85vh;
   width: 100%;
   background-size: cover;
 }
@@ -108,7 +108,7 @@ export default {
   #teamRApp {
     margin-right: 45%;
     margin-left: 80px;
-    letter-spacing: 5px;
+    letter-spacing: 7px;
   }
   .appInput {
     width: 200px;
