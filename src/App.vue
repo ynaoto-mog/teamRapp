@@ -1,15 +1,23 @@
 <template>
   <div class="home">
-    <div class="teamrlogo" v-if="helloJudge">
-      <div class="hello">
-        <input
-          type="text"
-          class="appInput"
-          v-model="helloPass"
-          placeholder="password"
-        /><br />
-        <button class="appButton" v-on:click="closeHello">ログイン</button>
-      </div>
+    <div class="teamr-background" v-if="helloJudge">
+      <header class="teamRAppHeader">
+        <p id="teamRApp">Team-R</p>
+        <nav class="teamRAppNav">
+          <input
+            type="text"
+            class="appInput"
+            v-model="helloPass"
+            placeholder="password"
+          />
+          <a
+            ><font-awesome-icon
+              class="logInIcon"
+              icon="door-open"
+              v-on:click="closeHello"
+          /></a>
+        </nav>
+      </header>
     </div>
     <selectview v-if="helloJudge === false" />
   </div>
@@ -48,43 +56,66 @@ export default {
 * {
   margin: 0px;
   padding: 0px;
+}
+.teamr-background {
   font-family: "Oswald", sans-serif;
-}
-
-.teamrlogo {
+  min-height: 100vh;
   width: 100%;
-  height: 100vh;
-  text-align: center;
   background-size: cover;
-  background-image: url("./assets/teamrlogo.png");
 }
-
-.appButton {
-  display: inline-block;
-  width: 130px;
-  padding: 0.8em;
-  text-align: center;
-  text-decoration: none;
-  color: #fff;
-  background: #0c88ca;
-  border-bottom: 4px solid #005691;
-  border-radius: 10px;
-  transition: 0s;
+.teamRAppHeader {
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.788);
 }
-.appButton:hover {
-  cursor: pointer;
-  text-decoration: none;
-  background: #005691;
-  transform: translate3d(0, 4px, 0);
-  transition: 0s;
-  border-bottom: none;
+#teamRApp {
+  color: white;
+  font-size: 1.7rem;
+  line-height: 100px;
+  float: left;
+}
+.teamRAppNav {
+  line-height: 100px;
 }
 .appInput {
-  margin-top: 50px;
-  margin-bottom: 15px;
-  padding: 20px;
-  text-align: center;
-  padding-left: 30px;
-  padding-right: 30px;
+  outline: none;
+  border: solid 0px;
+  border-bottom: solid 1px white;
+  background-color: rgba(0, 0, 0, 0.788);
+  height: 40px;
+  color: white;
+  margin-right: 10px;
+}
+.logInIcon {
+  zoom: 1.5;
+  color: white;
+}
+@media screen and (min-width: 900px) {
+  .teamr-background {
+    background-image: url("./assets/baseball.jpg");
+  }
+  #teamRApp {
+    margin-right: 45%;
+    margin-left: 80px;
+    letter-spacing: 5px;
+  }
+  .appInput {
+    width: 200px;
+    font-size: 1.1rem;
+    letter-spacing: 5px;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 900px) {
+  .teamr-background {
+    background-image: url("./assets/height.jpg");
+  }
+  #teamRApp {
+    margin-right: 15%;
+    margin-left: 20px;
+    letter-spacing: 2px;
+  }
+  .appInput {
+    width: 150px;
+    font-size: 1rem;
+  }
 }
 </style>
