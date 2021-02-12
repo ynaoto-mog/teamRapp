@@ -14,7 +14,7 @@ export default {};
 
 <style lang="scss" scoped>
 .top-bar {
-  width: 15%;
+  width: 18%;
   height: 85vh;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
@@ -23,7 +23,8 @@ export default {};
   padding-bottom: 40px;
   padding-left: 15px;
   padding-right: 15px;
-  transition-property: width, background-color;
+  font-size: 1rem;
+  transition-property: width, background-color font-size;
   transition-duration: 1s;
   ul {
     li {
@@ -32,8 +33,9 @@ export default {};
   }
 }
 .top-bar:hover {
-  width: 18%;
+  width: 25%;
   background-color: rgba(73, 0, 0, 0.692);
+  font-size: 1.3rem;
 }
 .top-bar-item {
   margin-bottom: 80px;
