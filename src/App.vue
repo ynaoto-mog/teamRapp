@@ -104,7 +104,7 @@ export default {
     letter-spacing: 5px;
   }
 }
-@media screen and (max-width: 900px) {
+@media screen and (min-width: 480px) and (max-width: 900px) {
   .teamr-background {
     background-image: url("./assets/height.jpg");
   }
@@ -115,6 +115,20 @@ export default {
   }
   .appInput {
     width: 150px;
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 480px) {
+  .teamr-background {
+    background-image: url("./assets/height.jpg");
+  }
+  #teamRApp {
+    margin-right: 10%;
+    margin-left: 20px;
+    letter-spacing: 1px;
+  }
+  .appInput {
+    width: 100px;
     font-size: 1rem;
   }
 }
