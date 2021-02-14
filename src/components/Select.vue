@@ -47,7 +47,7 @@ export default {
 .select {
   width: 100%;
   min-height: 100vh;
-  background-color: #24060625;
+  background-color: #27222225;
 }
 .selectHeader {
   height: 15vh;

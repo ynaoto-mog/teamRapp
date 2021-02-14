@@ -2,11 +2,14 @@
   <div class="allMember">
     <loading class="loadingAnime" v-if="loadingJudge === true" />
     <p class="allMemberTitle"><span>All</span> Member</p>
-    <p class="allMemberSubTitle">(数字は入学年度)</p>
+    <p class="allMemberSubTitle">(入学年度&背番号)</p>
     <ul v-for="member in members" :key="member.id">
       <li class="allMemberList">
-        <p>{{ member.admission }}</p>
-        <a v-on:click="openMemberModal(member.name)">{{ member.name }}</a>
+        <p class="allMembersAdmission">{{ member.admission }}</p>
+        <a class="allMemberNames" v-on:click="openMemberModal(member.name)"
+          ><span>{{ member.uniformNumber }}</span
+          >:{{ member.name }}</a
+        >
         <memberdetail
           v-if="memberModalJudge === member.name"
           v-bind:name="member.name"
@@ -63,18 +66,18 @@ export default {
 
 <style lang="scss">
 .allMember {
-  margin-left: 185.06px + 80px;
+  margin-left: 191.06px + 80px;
   text-align: center;
   position: relative;
 }
 .loadingAnime {
   position: absolute;
-  top: 15vh;
+  top: 20vh;
   left: 48%;
 }
 .allMemberTitle {
   font-size: 1.5rem;
-  padding-top: 5vh;
+  padding-top: 8vh;
   letter-spacing: 3px;
   span {
     color: #ca0c0c;
@@ -87,6 +90,15 @@ export default {
 .allMemberList {
   list-style: none;
   margin-top: 2vh;
+}
+.allMembersAdmission {
+  font-size: 0.6rem;
+}
+.allMemberNames {
+  letter-spacing: 1.3px;
+  span {
+    font-size: 0.8rem;
+  }
 }
 .printAdmissionYear {
   margin-bottom: 10px;

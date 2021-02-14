@@ -52,6 +52,7 @@ export default {
 }
 .memberListItem {
   margin-top: 8vh;
+  letter-spacing: 0.6px;
 }
 .memberButton {
   display: inline-block;
