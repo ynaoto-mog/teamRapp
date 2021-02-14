@@ -1,9 +1,11 @@
 <template>
   <div class="allMember">
-    <h2 class="allMemberH2">メンバー一覧(クリックで通算成績確認)</h2>
+    <p class="allMemberTitle"><span>All</span> Member</p>
+    <p class="allMemberSubTitle">(数字は入学年度)</p>
     <loading v-if="loadingJudge === true" />
     <ul v-for="member in members" :key="member.id">
       <li class="allMemberList">
+        <p>{{ member.admission }}</p>
         <a v-on:click="openMemberModal(member.name)">{{ member.name }}</a>
         <memberdetail
           v-if="memberModalJudge === member.name"
@@ -38,10 +40,6 @@ export default {
       } else {
         this.memberModalJudge = "";
       }
-    },
-    printAdmissionYear(year) {
-      this.admissionYear = year;
-      return year;
     }
   },
   created: async function() {
@@ -57,22 +55,32 @@ export default {
       });
     });
     this.loadingJudge = false;
+    this.admissionYear = this.members[0].admission;
+    console.log(this.admissionYear);
   }
 };
 </script>
 
 <style lang="scss">
 .allMember {
-  width: 100%;
-  padding: 3vh 10%;
+  margin-left: 175.41px + 80px;
+  text-align: center;
 }
-.allMemberH2 {
-  margin-bottom: 3vh;
+.allMemberTitle {
+  font-size: 1.5rem;
+  padding-top: 5vh;
+  letter-spacing: 3px;
+  span {
+    color: #ca0c0c;
+  }
+}
+.allMemberSubTitle {
+  margin-bottom: 4vh;
+  font-size: 0.6rem;
 }
 .allMemberList {
   list-style: none;
-  margin-bottom: 2vh;
-  font-weight: bold;
+  margin-top: 2vh;
 }
 .printAdmissionYear {
   margin-bottom: 10px;

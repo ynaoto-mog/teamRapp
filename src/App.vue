@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <transition class="home" name="home">
     <div class="teamr-background" v-if="helloJudge">
       <header class="teamRAppHeader">
         <p id="teamRApp">Team-<span class="RInTeamR">R</span></p>
@@ -21,7 +21,7 @@
       <topbar />
     </div>
     <selectview v-if="helloJudge === false" />
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -59,10 +59,18 @@ export default {
 * {
   margin: 0px;
   padding: 0px;
+  font-family: "Oswald", sans-serif;
+}
+.home-enter-active,
+.home-leave-active {
+  transition: opacity 0.3s;
+}
+.home-enter,
+.home-leave-to {
+  opacity: 0;
 }
 .teamr-background {
-  font-family: "Oswald", sans-serif;
-  min-height: 85vh;
+  min-height: 80vh;
   width: 100%;
   background-size: cover;
 }

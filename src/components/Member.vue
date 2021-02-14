@@ -1,19 +1,15 @@
 <template>
   <div class="members">
-    <h3 class="secondMenuInMember">Second Menu</h3>
-    <ul class="memberUl">
-      <li class="memberListOne">
-        <a class="memberButton" v-on:click="changeMPage('allmember')"
-          >メンバー一覧</a
-        >
-      </li>
-      <li class="memberListOne">
-        <a class="memberButton" v-on:click="changeMPage('newmember')"
-          >メンバー追加</a
-        >
-      </li>
-    </ul>
-    <hr class="hrInMember" />
+    <div class="membersBar">
+      <ul class="memberUl">
+        <li class="memberListItem" v-on:click="changeMPage('allmember')">
+          <span class="memberButton">All Members</span>
+        </li>
+        <li class="memberListItem" v-on:click="changeMPage('newmember')">
+          <span class="memberButton">Add Member</span>
+        </li>
+      </ul>
+    </div>
     <allmember v-if="mPageWord === 'allmember'" />
     <newmember v-if="mPageWord === 'newmember'" />
   </div>
@@ -40,44 +36,33 @@ export default {
 </script>
 
 <style lang="scss">
-.secondMenuInMember {
+.members {
+  min-height: 85vh;
+}
+.membersBar {
+  margin-left: 80px;
+  padding-right: 80px;
+  border-right: solid 1px rgba(0, 0, 0, 0.397);
+  height: 85vh;
   float: left;
-  margin-top: 3.2vh;
-  margin-left: 3%;
-  font-family: serif;
 }
 .memberUl {
   width: 100%;
   list-style: none;
-  margin-left: 500px;
 }
-.hrInMember {
-  clear: both;
-}
-.memberListOne {
-  float: left;
-  margin-left: 5%;
-  margin-top: 3vh;
-  margin-bottom: 3vh;
+.memberListItem {
+  margin-top: 8vh;
 }
 .memberButton {
   display: inline-block;
-  width: 100px;
-  padding: 0.5em;
   text-align: center;
   text-decoration: none;
-  color: #fff;
-  background: hsl(155, 100%, 28%);
-  border-bottom: 4px solid hsl(155, 80%, 14%);
-  border-radius: 10px;
-  transition: 0s;
+  border-bottom: solid black 1px;
+  transition-property: color;
+  transition-duration: 0.2s;
 }
 .memberButton:hover {
   cursor: pointer;
-  text-decoration: none;
-  background: hsl(155, 80%, 14%);
-  transform: translate3d(0, 4px, 0);
-  transition: 0s;
-  border-bottom: none;
+  color: #ca0c0c;
 }
 </style>
