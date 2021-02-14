@@ -1,8 +1,8 @@
 <template>
   <div class="allMember">
+    <loading class="loadingAnime" v-if="loadingJudge === true" />
     <p class="allMemberTitle"><span>All</span> Member</p>
     <p class="allMemberSubTitle">(数字は入学年度)</p>
-    <loading v-if="loadingJudge === true" />
     <ul v-for="member in members" :key="member.id">
       <li class="allMemberList">
         <p>{{ member.admission }}</p>
@@ -63,8 +63,14 @@ export default {
 
 <style lang="scss">
 .allMember {
-  margin-left: 175.41px + 80px;
+  margin-left: 185.06px + 80px;
   text-align: center;
+  position: relative;
+}
+.loadingAnime {
+  position: absolute;
+  top: 15vh;
+  left: 48%;
 }
 .allMemberTitle {
   font-size: 1.5rem;
