@@ -73,6 +73,7 @@ export default {
   border-bottom: solid black 1px;
   transition-property: color;
   transition-duration: 0.3s;
+  letter-spacing: 1px;
 }
 .selectItemSpan:hover {
   color: #ca0c0c;
