@@ -20,7 +20,7 @@
       </header>
       <topbar />
     </div>
-    <selectview v-if="helloJudge === false" />
+    <selectview v-if="helloJudge === false" @recoverTop="recoverTop" />
   </transition>
 </template>
 
@@ -47,6 +47,10 @@ export default {
     },
     confirmReload(event) {
       event.returnValue = "ログイン前まで処理が戻りますがよろしいですか？";
+    },
+    recoverTop() {
+      this.helloPass = "";
+      this.helloJudge = true;
     }
   },
   created: function() {

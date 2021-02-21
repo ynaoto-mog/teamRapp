@@ -1,9 +1,9 @@
 <template>
   <div class="top-bar">
     <ul>
-      <li class="top-bar-item">Member</li>
-      <li class="top-bar-item">Intro</li>
-      <li class="top-bar-item">Contact</li>
+      <li class="top-bar-item"></li>
+      <li class="top-bar-item"></li>
+      <li class="top-bar-item"></li>
     </ul>
   </div>
 </template>

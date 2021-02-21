@@ -1,7 +1,7 @@
 <template>
   <div class="select">
     <header class="selectHeader">
-      <p class="RInselect">Team-<span>R</span></p>
+      <p class="RInselect" @click="recoverTop">Team-<span>R</span></p>
       <ul class="selectList">
         <li class="selectListItem" v-on:click="changePart('members')">
           <span class="selectItemSpan">Members</span>
@@ -38,6 +38,9 @@ export default {
   methods: {
     changePart(partName) {
       this.partName = partName;
+    },
+    recoverTop() {
+      this.$emit("recoverTop");
     }
   }
 };
@@ -59,6 +62,8 @@ export default {
   margin-left: 80px;
   float: left;
   margin-right: 10%;
+  cursor: hand;
+  cursor: pointer;
   span {
     color: #ca0c0c;
   }

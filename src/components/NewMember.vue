@@ -1,14 +1,14 @@
 <template>
   <div class="newMember">
-    <h2>新規メンバー追加</h2>
-    <p class="newMemberInput">氏名</p>
+    <p>Add Member</p>
+    <p class="newMemberInput">Name</p>
     <input type="text" placeholder="氏名" v-model="name" />
-    <p class="newMemberInput">背番号</p>
+    <p class="newMemberInput">Uniform Number</p>
     <input type="number" placeholder="背番号" v-model="uniformNumber" />
-    <p class="newMemberInput">入学年</p>
+    <p class="newMemberInput">Admission Year</p>
     <input type="number" placeholder="20XX" v-model="admission" />
-    <p class="newMemberConfirm">確認して登録ボタンを押してください。</p>
-    <a class="newMemberButton" v-on:click="saveMember">登録</a>
+    <p class="newMemberConfirm">Confirm and press resister button</p>
+    <a class="newMemberButton" v-on:click="saveMember">Resister</a>
   </div>
 </template>
 
@@ -53,7 +53,7 @@ export default {
 <style lang="scss">
 .newMember {
   width: 100%;
-  padding: 3vh 10%;
+  text-align: center;
 }
 .newMemberInput {
   margin-top: 3vh;
